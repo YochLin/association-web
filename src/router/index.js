@@ -51,7 +51,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/association-web/'),
   routes,
   scrollBehavior() {
     // 页面切换时，滚动到顶部
