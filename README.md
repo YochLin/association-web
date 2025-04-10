@@ -62,6 +62,28 @@ npm run build
 - 活動資訊：展示協會舉辦的各類活動
 - 聯絡我們：聯絡方式和留言表單
 
+## GitHub Pages 部署
+
+本項目已配置 GitHub Actions 工作流程，可自動部署到 GitHub Pages。
+
+### 自動部署流程
+
+1. 當代碼推送到 `main` 分支時，將自動觸發部署流程
+2. GitHub Actions 會執行以下步驟：
+   - 檢出代碼
+   - 安裝依賴
+   - 構建項目
+   - 將構建結果部署到 `gh-pages` 分支
+
+### 手動觸發部署
+
+您也可以在 GitHub 倉庫的 Actions 頁面手動觸發部署流程。
+
+### 注意事項
+
+- 確保倉庫已啟用 GitHub Pages，並設置為從 `gh-pages` 分支部署
+- 首次部署後，可能需要在倉庫設置中配置自定義域名（如需要）
+
 # Vue 3 + Vite
 
 This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
