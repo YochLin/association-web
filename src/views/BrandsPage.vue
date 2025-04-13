@@ -195,6 +195,8 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import redorangeImg from '../assets/redorange.png';
+import saltlessImg from '../assets/saltless.png';
 
 // 品牌分類
 const brandCategories = [
@@ -213,7 +215,7 @@ const brands = [
   {
     id: 1,
     name: '紅橘子',
-    logo: '/src/assets/redorange.png',
+    logo: redorangeImg,
     category: '早餐',
     description: '紅橘子，開啟你幸福的每一天。我們為了幸福而開店，當然也要每天都很幸福。',
     website: 'https://www.redorange.com.tw/'
@@ -221,90 +223,10 @@ const brands = [
   {
     id: 2,
     name: '少點鹽',
-    logo: '/src/assets/saltless.png',
+    logo: saltlessImg,
     category: '健康餐盒',
     description: '少點鹽健康餐盒專賣，顛覆傳統水煮餐盒印象，當天新鮮食材現烹調，少油少鹽呈現食物的原味，每口都新鮮，簡單卻又不失美味。',
     website: 'https://www.healthittaipei.com.tw'
-  },
-  {
-    id: 3,
-    name: '雲端科技',
-    logo: '/brand-logo-3.png',
-    category: '科技企業',
-    description: '專注於雲計算和大數據服務的技術公司，為企業數字化轉型提供支持。',
-    website: 'https://example.com/cloudtech'
-  },
-  {
-    id: 4,
-    name: '全球金融',
-    logo: '/brand-logo-4.png',
-    category: '金融機構',
-    description: '綜合性金融服務集團，提供多元化的金融產品和投資解決方案。',
-    website: 'https://example.com/globalfinance'
-  },
-  {
-    id: 5,
-    name: '智慧物流',
-    logo: '/brand-logo-5.png',
-    category: '服務業',
-    description: '智能物流解決方案提供商，利用物聯網和大數據技術優化供應鏈管理。',
-    website: 'https://example.com/smartlogistics'
-  },
-  {
-    id: 6,
-    name: '數字傳媒',
-    logo: '/brand-logo-6.png',
-    category: '媒體機構',
-    description: '數字內容創作和發布平台，覆蓋多種媒體形式和渠道。',
-    website: 'https://example.com/digitalmedia'
-  },
-  {
-    id: 7,
-    name: '綠色能源',
-    logo: '/brand-logo-7.png',
-    category: '製造業',
-    description: '致力於可再生能源技術研發和應用的企業，推動能源產業綠色轉型。',
-    website: 'https://example.com/greenenergy'
-  },
-  {
-    id: 8,
-    name: '安全衛士',
-    logo: '/brand-logo-8.png',
-    category: '科技企業',
-    description: '專業的網絡安全解決方案提供商，為企業和組織提供全方位的安全防護。',
-    website: 'https://example.com/securityguard'
-  },
-  {
-    id: 9,
-    name: '健康醫療',
-    logo: '/brand-logo-9.png',
-    category: '服務業',
-    description: '集醫療服務、健康管理和醫學研究於一體的綜合性健康產業集團。',
-    website: 'https://example.com/healthcare'
-  },
-  {
-    id: 10,
-    name: '城市銀行',
-    logo: '/brand-logo-10.png',
-    category: '金融機構',
-    description: '提供個人和企業全方位金融服務的現代化銀行，注重科技創新和客戶體驗。',
-    website: 'https://example.com/citybank'
-  },
-  {
-    id: 11,
-    name: '商業資訊',
-    logo: '/brand-logo-11.png',
-    category: '媒體機構',
-    description: '專注於商業和經濟領域的資訊服務機構，提供及時、專業的市場分析和行業報道。',
-    website: 'https://example.com/businessnews'
-  },
-  {
-    id: 12,
-    name: '未來教育',
-    logo: '/brand-logo-12.png',
-    category: '服務業',
-    description: '結合先進技術和創新教學方法的教育科技公司，致力於提升學習效果和體驗。',
-    website: 'https://example.com/futureedu'
   }
 ];
 

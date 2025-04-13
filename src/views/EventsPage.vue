@@ -213,70 +213,7 @@ const events = [
     image: '/event-1.jpg',
     description: '本次峰會將邀請行業頂尖專家，共同探討行業未來發展趨勢、技術創新方向以及政策影響。',
     featured: true
-  },
-  {
-    id: 2,
-    title: '新技術應用工作坊',
-    date: '2023-07-20',
-    location: '技術創新中心',
-    category: '培訓工作坊',
-    image: '/event-2.jpg',
-    description: '針對行業最新技術發展，提供實操培訓，幫助企業掌握前沿技術應用方法。'
-  },
-  {
-    id: 3,
-    title: '會員企業交流酒會',
-    date: '2023-08-10',
-    location: '君悅酒店',
-    category: '行業交流',
-    image: '/event-3.jpg',
-    description: '為會員企業提供輕鬆交流的平台，促進企業間合作與資源共享。'
-  },
-  {
-    id: 4,
-    title: '青年創業者扶持計劃啟動儀式',
-    date: '2023-09-05',
-    location: '創業孵化中心',
-    category: '公益活動',
-    image: '/event-4.jpg',
-    description: '協會推出的青年創業扶持計劃正式啟動，將為有潛力的青年創業項目提供資金、資源和指導。'
-  },
-  {
-    id: 5,
-    title: '行業標準制定專題研討會',
-    date: '2023-10-12',
-    location: '協會總部',
-    category: '會議論壇',
-    image: '/event-5.jpg',
-    description: '針對行業標準制定過程中的關鍵問題進行深入討論，推動行業標準化進程。'
-  },
-  {
-    id: 6,
-    title: '數字化轉型高級研修班',
-    date: '2023-11-08',
-    location: '商學院',
-    category: '培訓工作坊',
-    image: '/event-6.jpg',
-    description: '為企業高管提供數字化轉型戰略規劃、實施路徑和案例分析的專業培訓。'
-  },
-  {
-    id: 7,
-    title: '年度行業評選頒獎典禮',
-    date: '2023-12-18',
-    location: '大劇院',
-    category: '行業交流',
-    image: '/event-7.jpg',
-    description: '表彰行業內優秀企業和個人，樹立行業標杆，促進行業健康發展。'
-  },
-  {
-    id: 8,
-    title: '鄉村振興項目考察活動',
-    date: '2024-01-15',
-    location: '山區示範基地',
-    category: '公益活動',
-    image: '/event-8.jpg',
-    description: '組織會員企業前往鄉村振興示範基地考察，推動企業參與鄉村振興戰略實施。'
-  },
+  }
 ];
 
 // 活動圖片畫廊

@@ -3,7 +3,7 @@
     <!-- 頁面標題部分 -->
     <section class="bg-blue-800 text-white py-20">
       <div class="container-custom text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">協會領導</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">協會成員</h1>
         <p class="text-xl md:text-2xl max-w-3xl mx-auto">了解協會領導團隊，共同推動行業發展</p>
       </div>
     </section>

@@ -23,7 +23,7 @@
           <ul class="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0">
             <li><router-link to="/" class="text-gray-700 hover:text-blue-600 font-medium">首頁</router-link></li>
             <li><router-link to="/about" class="text-gray-700 hover:text-blue-600 font-medium">關於協會</router-link></li>
-            <li><router-link to="/leadership" class="text-gray-700 hover:text-blue-600 font-medium">協會領導</router-link></li>
+            <li><router-link to="/leadership" class="text-gray-700 hover:text-blue-600 font-medium">協會成員</router-link></li>
             <li><router-link to="/brands" class="text-gray-700 hover:text-blue-600 font-medium">合作品牌</router-link></li>
             <li><router-link to="/events" class="text-gray-700 hover:text-blue-600 font-medium">活動資訊</router-link></li>
             <li><router-link to="/contact" class="text-gray-700 hover:text-blue-600 font-medium">聯絡我們</router-link></li>
