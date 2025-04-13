@@ -26,42 +26,13 @@
               <img src="/chairman.jpg" alt="理事長" class="w-full h-full object-cover">
             </div>
             <div>
-              <h3 class="text-2xl font-bold text-gray-800 mb-2">張偉明</h3>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">蔡思庭</h3>
               <p class="text-blue-600 font-medium mb-4">理事長</p>
               <p class="text-gray-600 mb-4 leading-relaxed">
                 張偉明先生現任XX集團有限公司董事長，在行業內擁有超過30年的豐富經驗。他於2023年當選為協會第五屆理事長，致力於推動行業技術創新和國際化發展。
               </p>
               <p class="text-gray-600 leading-relaxed">
                 在他的領導下，協會積極推動行業標準制定，促進企業間合作，為行業持續健康發展作出重要貢獻。
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 副理事長 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div class="card p-6 flex flex-col sm:flex-row gap-6">
-            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-100 flex-shrink-0 mx-auto sm:mx-0">
-              <img src="/vice-chairman-1.jpg" alt="副理事長" class="w-full h-full object-cover">
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 mb-1 text-center sm:text-left">李紅梅</h3>
-              <p class="text-blue-600 font-medium mb-3 text-center sm:text-left">副理事長</p>
-              <p class="text-gray-600 leading-relaxed">
-                李紅梅女士現任YY科技有限公司CEO，負責協會國際合作和行業標準委員會工作。
-              </p>
-            </div>
-          </div>
-          
-          <div class="card p-6 flex flex-col sm:flex-row gap-6">
-            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-100 flex-shrink-0 mx-auto sm:mx-0">
-              <img src="/vice-chairman-2.jpg" alt="副理事長" class="w-full h-full object-cover">
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 mb-1 text-center sm:text-left">王建國</h3>
-              <p class="text-blue-600 font-medium mb-3 text-center sm:text-left">副理事長</p>
-              <p class="text-gray-600 leading-relaxed">
-                王建國先生現任ZZ實業集團總裁，負責協會會員發展和行業培訓工作。
               </p>
             </div>
           </div>
@@ -74,7 +45,7 @@
               <img src="/secretary.jpg" alt="秘書長" class="w-full h-full object-cover">
             </div>
             <div>
-              <h3 class="text-xl font-bold text-gray-800 mb-2">劉明</h3>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">蕭雅梅</h3>
               <p class="text-blue-600 font-medium mb-4">秘書長</p>
               <p class="text-gray-600 leading-relaxed">
                 劉明先生自2015年起擔任協會秘書長，全面負責協會日常運營管理工作。他擁有豐富的協會管理經驗，致力於提升協會服務質量，推動協會各項工作的開展和實施。
@@ -109,40 +80,16 @@
             感謝歷屆理事長為協會發展做出的重要貢獻
           </p>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div v-for="(chairman, index) in pastChairmen" :key="index" class="card p-6 text-center">
             <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-100 mx-auto mb-4">
               <img :src="chairman.image" :alt="chairman.name" class="w-full h-full object-cover">
             </div>
             <h3 class="text-lg font-bold text-gray-800">{{ chairman.name }}</h3>
-            <p class="text-blue-600 font-medium mb-2">第{{ chairman.term }}屆理事長</p>
+            <p class="text-blue-600 font-medium mb-2">{{ chairman.term }}</p>
             <p class="text-gray-600 text-sm mb-2">{{ chairman.period }}</p>
             <p class="text-gray-600 text-sm">{{ chairman.company }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 秘書處部分 -->
-    <section class="py-16 bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">秘書處</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            秘書處負責協會日常工作的組織和實施
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div v-for="(staff, index) in secretariat" :key="index" class="card p-6 text-center">
-            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-blue-100 mx-auto mb-3">
-              <img :src="staff.image" :alt="staff.name" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-lg font-bold text-gray-800 mb-1">{{ staff.name }}</h3>
-            <p class="text-blue-600 font-medium mb-3">{{ staff.position }}</p>
-            <p class="text-gray-600 text-sm">{{ staff.responsibility }}</p>
           </div>
         </div>
       </div>
@@ -165,49 +112,14 @@ const boardMembers = [
 
 // 歷屆理事長數據
 const pastChairmen = [
-  { name: '陳大明', term: '一', period: '2000-2004', company: 'XX集團創始人', image: '/past-chairman-1.jpg' },
-  { name: '李建華', term: '二', period: '2004-2008', company: 'YY科技前CEO', image: '/past-chairman-2.jpg' },
-  { name: '王強', term: '三', period: '2008-2015', company: 'ZZ實業董事長', image: '/past-chairman-3.jpg' },
-  { name: '錢路明', term: '四', period: '2015-2023', company: 'WW控股集團主席', image: '/past-chairman-4.jpg' },
-];
-
-// 秘書處成員數據
-const secretariat = [
-  { 
-    name: '劉明', 
-    position: '秘書長', 
-    responsibility: '全面負責協會日常運營管理',
-    image: '/secretary.jpg'
-  },
-  { 
-    name: '張佳麗', 
-    position: '副秘書長', 
-    responsibility: '負責會員服務和活動組織',
-    image: '/deputy-secretary-1.jpg'
-  },
-  { 
-    name: '王小龍', 
-    position: '副秘書長', 
-    responsibility: '負責財務管理和對外合作',
-    image: '/deputy-secretary-2.jpg'
-  },
-  { 
-    name: '李媛', 
-    position: '會員部主任', 
-    responsibility: '負責會員發展與服務工作',
-    image: '/staff-1.jpg'
-  },
-  { 
-    name: '趙鑫', 
-    position: '活動部主任', 
-    responsibility: '負責協會各類活動的策劃與實施',
-    image: '/staff-2.jpg'
-  },
-  { 
-    name: '黃志強', 
-    position: '宣傳部主任', 
-    responsibility: '負責協會品牌宣傳與媒體合作',
-    image: '/staff-3.jpg'
-  },
+  { name: '張廷章', term: '創會會長', period: '2000-2004', company: '巨森食品企業有限公司', image: '/past-chairman-1.jpg' },
+  { name: '林坤炎', term: '榮譽理事長', period: '2000-2004', company: '巨森食品企業有限公司', image: '/past-chairman-1.jpg' },
+  { name: '徐倉賓', term: '第一屆副理事長', period: '2000-2004', company: '弘爺國際企業股份有限公司', image: '/past-chairman-1.jpg' },
+  { name: '蔡澔鎔', term: '第二屆理事長', period: '2004-2008', company: '齋聖彥有限公司', image: '/past-chairman-2.jpg' },
+  { name: '陳筑怜', term: '第二屆理事長', period: '2004-2008', company: '齋聖彥有限公司', image: '/past-chairman-2.jpg' },
+  { name: '葉益芳', term: '第三屆理事長', period: '2008-2015', company: '益方封口機公司', image: '/past-chairman-3.jpg' },
+  { name: '林良田', term: '第五,六屆理事長', period: '2008-2015', company: '板田實業有限公司', image: '/past-chairman-3.jpg' },
+  { name: '陳弘欽', term: '第七,八屆理事長', period: '2008-2015', company: '巧沛國際股份有限公司', image: '/past-chairman-3.jpg' },
+  { name: '莊茂山', term: '第九屆理事長', period: '2008-2015', company: '吉得堡食品有限公司', image: '/past-chairman-3.jpg' },
 ];
 </script> 
