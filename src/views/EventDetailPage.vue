@@ -83,64 +83,18 @@
               
               <!-- 活動詳細介紹 -->
               <div class="prose max-w-none">
-                <h3>活動背景</h3>
-                <p>
-                  隨著行業的不斷發展和變革，企業面臨著越來越多的挑戰和機遇。為了幫助會員企業更好地了解行業趨勢，把握發展方向，我們特別舉辦本次活動，邀請行業內知名專家和企業領袖分享他們的見解和經驗。
-                </p>
-                
-                <h3>活動亮點</h3>
-                <ul>
-                  <li>權威專家分享行業最新趨勢和發展方向</li>
-                  <li>案例分析，解讀成功企業的創新策略</li>
-                  <li>互動討論，解答企業在發展中遇到的實際問題</li>
-                  <li>社交環節，拓展人脈，尋找合作機會</li>
-                </ul>
-                
-                <h3>議程安排</h3>
-                <div class="border-l-4 border-blue-600 pl-4 my-4 space-y-4">
-                  <div>
-                    <h4 class="font-bold">13:30 - 14:00</h4>
-                    <p>簽到</p>
-                  </div>
-                  <div>
-                    <h4 class="font-bold">14:00 - 14:15</h4>
-                    <p>開場致辭 - 協會理事長</p>
-                  </div>
-                  <div>
-                    <h4 class="font-bold">14:15 - 15:00</h4>
-                    <p>主題演講一：《行業發展新趨勢》- XX專家</p>
-                  </div>
-                  <div>
-                    <h4 class="font-bold">15:00 - 15:45</h4>
-                    <p>主題演講二：《創新驅動發展》- XX企業CEO</p>
-                  </div>
-                  <div>
-                    <h4 class="font-bold">15:45 - 16:00</h4>
-                    <p>茶歇</p>
-                  </div>
-                  <div>
-                    <h4 class="font-bold">16:00 - 16:45</h4>
-                    <p>圓桌討論：《面向未來的企業戰略》</p>
-                  </div>
-                  <div>
-                    <h4 class="font-bold">16:45 - 17:00</h4>
-                    <p>提問環節</p>
-                  </div>
-                  <div>
-                    <h4 class="font-bold">17:00 - 17:30</h4>
-                    <p>交流與社交</p>
-                  </div>
-                </div>
-                
-                <h3>參與對象</h3>
-                <p>
-                  本次活動面向協會會員企業的高管、決策者和相關領域的專業人士開放。非會員企業如希望參加，請提前聯繫協會秘書處。
-                </p>
-                
-                <h3>參與方式</h3>
-                <p>
-                  請點擊右側"立即報名"按鈕填寫報名資訊，或致電協會秘書處進行報名。報名成功後，我們將通過郵件發送活動確認函和詳細參會指南。
-                </p>
+              100家餐飲企業總部立案至今屆滿20年的～<br>
+              #台灣速食餐飲連鎖協會#<br>
+              謹訂114年2月13日星期四18:00🌲海大王時尚喜宴廣場(新北產業園區五工路66號2樓)🌲。<br>
+              廣邀💌～<br>
+              🔥餐飲品牌總部<br>
+              🔥食品加工廠<br>
+              🔥行銷策略公司<br>
+              符合以上企業主/主管歡迎👏報名參加會員春酒宴～<br>
+              1000元/位<br>
+              #台灣速食餐飲連鎖#<br>
+              #企業會員招募#<br>
+              #限額##2月7日前#
               </div>
             </div>
             
@@ -237,6 +191,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import event1Img from '../assets/event1.jpg';
 
 const route = useRoute();
 const eventId = route.params.id;
@@ -251,14 +206,13 @@ const fetchEvent = () => {
   const eventsData = [
     {
       id: '1',
-      title: '2025年度行业发展趋势研讨会',
-      type: '研讨会',
-      date: '2025年5月15日',
-      time: '14:00-17:00',
-      location: '北京国际会议中心',
-      description: '邀请行业专家分享对未来发展趋势的见解和分析，探讨行业面临的机遇与挑战。',
-      image: '/event-1.jpg',
-      status: '报名中'
+      title: '2025第十屆第四次例會',
+      type: '例會',
+      date: '2025年2月13日',
+      time: '18:00-21:00',
+      location: '海大王時尚喜宴廣場',
+      image: event1Img,
+      status: '已结束'
     },
     {
       id: '2',
@@ -314,11 +268,11 @@ const relatedEvents = [
 // 状态徽章样式
 const getStatusBadgeClass = (status) => {
   switch (status) {
-    case '报名中':
+    case '報名中':
       return 'bg-green-600 text-white';
-    case '筹备中':
+    case '籌備中':
       return 'bg-yellow-600 text-white';
-    case '已结束':
+    case '已結束':
       return 'bg-gray-600 text-white';
     default:
       return 'bg-gray-600 text-white';

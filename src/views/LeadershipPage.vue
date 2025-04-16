@@ -23,7 +23,7 @@
         <div class="mb-16">
           <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
             <div class="w-64 h-64 overflow-hidden rounded-full border-4 border-blue-100 shadow-lg flex-shrink-0">
-              <img src="/chairman.jpg" alt="理事長" class="w-full h-full object-cover">
+              <img src="../assets/male_icon.png" alt="理事長" class="w-full h-full object-cover">
             </div>
             <div>
               <h3 class="text-2xl font-bold text-gray-800 mb-2">蔡思庭</h3>
@@ -42,7 +42,7 @@
         <div class="mb-16">
           <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
             <div class="w-48 h-48 overflow-hidden rounded-full border-4 border-blue-100 shadow-lg flex-shrink-0">
-              <img src="/secretary.jpg" alt="秘書長" class="w-full h-full object-cover">
+              <img src="../assets/male_icon.png" alt="秘書長" class="w-full h-full object-cover">
             </div>
             <div>
               <h3 class="text-xl font-bold text-gray-800 mb-2">蕭雅梅</h3>
@@ -50,20 +50,6 @@
               <p class="text-gray-600 leading-relaxed">
                 劉明先生自2015年起擔任協會秘書長，全面負責協會日常運營管理工作。他擁有豐富的協會管理經驗，致力於提升協會服務質量，推動協會各項工作的開展和實施。
               </p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 理事會成員 -->
-        <div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">理事會成員</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            <div v-for="(member, index) in boardMembers" :key="index" class="text-center">
-              <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-blue-100 mx-auto mb-3">
-                <img :src="member.image" :alt="member.name" class="w-full h-full object-cover">
-              </div>
-              <h4 class="font-medium text-gray-800">{{ member.name }}</h4>
-              <p class="text-sm text-gray-600">{{ member.company }}</p>
             </div>
           </div>
         </div>
@@ -94,32 +80,152 @@
         </div>
       </div>
     </section>
+
+    <!-- 品牌介紹 -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">品牌成員</h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            我們與行業內眾多知名企業建立了緊密的合作關係，共同推動行業創新與發展
+          </p>
+        </div>
+        
+        <!-- 篩選選項 -->
+        <div class="mb-8">
+          <div class="flex flex-wrap justify-center gap-4">
+            <button 
+              @click="currentCategory = 'all'" 
+              :class="['px-4 py-2 rounded-full text-sm font-medium', 
+                      currentCategory === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
+            >
+              全部
+            </button>
+            <button 
+              v-for="category in brandCategories" 
+              :key="category.value"
+              @click="currentCategory = category.value" 
+              :class="['px-4 py-2 rounded-full text-sm font-medium', 
+                      currentCategory === category.value ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
+            >
+              {{ category.label }}
+            </button>
+          </div>
+        </div>
+        
+        <!-- 品牌展示 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div 
+            v-for="brand in filteredBrands" 
+            :key="brand.id"
+            class="card p-6 hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-6">
+              <img :src="brand.logo" :alt="brand.name" class="h-20 object-contain">
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 text-center mb-2">{{ brand.name }}</h3>
+            <p class="text-sm text-gray-600 text-center mb-4">{{ brand.category }}</p>
+            <p class="text-gray-600 text-sm mb-4">{{ brand.description }}</p>
+            <div class="text-center">
+              <a :href="brand.website" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                訪問官網 &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue';
+import redorangeImg from '../assets/redorange.png';
+import saltlessImg from '../assets/saltless.png';
+import bioTechImg from '../assets/bio_tech.jpg';
+import ericaImg from '../assets/erica_tech.png';
+import maleIconImg from '../assets/male_icon.png';
+
 // 理事會成員數據
 const boardMembers = [
-  { name: '陳志強', company: 'AA公司', image: '/board-1.jpg' },
-  { name: '張麗華', company: 'BB集團', image: '/board-2.jpg' },
-  { name: '王偉', company: 'CC科技', image: '/board-3.jpg' },
-  { name: '李小紅', company: 'DD傳媒', image: '/board-4.jpg' },
-  { name: '趙明', company: 'EE工業', image: '/board-5.jpg' },
-  { name: '黃海', company: 'FF商貿', image: '/board-6.jpg' },
-  { name: '周健', company: 'GG實業', image: '/board-7.jpg' },
-  { name: '吳芳', company: 'HH投資', image: '/board-8.jpg' },
+  { name: '陳志強', company: 'AA公司', image: maleIconImg },
+  { name: '張麗華', company: 'BB集團', image: maleIconImg },
+  { name: '王偉', company: 'CC科技', image: maleIconImg },
+  { name: '李小紅', company: 'DD傳媒', image: maleIconImg },
+  { name: '趙明', company: 'EE工業', image: maleIconImg },
+  { name: '黃海', company: 'FF商貿', image: maleIconImg },
+  { name: '周健', company: 'GG實業', image: maleIconImg },
+  { name: '吳芳', company: 'HH投資', image: maleIconImg },
 ];
 
 // 歷屆理事長數據
 const pastChairmen = [
-  { name: '張廷章', term: '創會會長', period: '2000-2004', company: '巨森食品企業有限公司', image: '/past-chairman-1.jpg' },
-  { name: '林坤炎', term: '榮譽理事長', period: '2000-2004', company: '巨森食品企業有限公司', image: '/past-chairman-1.jpg' },
-  { name: '徐倉賓', term: '第一屆副理事長', period: '2000-2004', company: '弘爺國際企業股份有限公司', image: '/past-chairman-1.jpg' },
-  { name: '蔡澔鎔', term: '第二屆理事長', period: '2004-2008', company: '齋聖彥有限公司', image: '/past-chairman-2.jpg' },
-  { name: '陳筑怜', term: '第二屆理事長', period: '2004-2008', company: '齋聖彥有限公司', image: '/past-chairman-2.jpg' },
-  { name: '葉益芳', term: '第三屆理事長', period: '2008-2015', company: '益方封口機公司', image: '/past-chairman-3.jpg' },
-  { name: '林良田', term: '第五,六屆理事長', period: '2008-2015', company: '板田實業有限公司', image: '/past-chairman-3.jpg' },
-  { name: '陳弘欽', term: '第七,八屆理事長', period: '2008-2015', company: '巧沛國際股份有限公司', image: '/past-chairman-3.jpg' },
-  { name: '莊茂山', term: '第九屆理事長', period: '2008-2015', company: '吉得堡食品有限公司', image: '/past-chairman-3.jpg' },
+  { name: '張廷章', term: '創會會長', period: '2000-2004', company: '巨森食品企業有限公司', image: maleIconImg },
+  { name: '林坤炎', term: '榮譽理事長', period: '2000-2004', company: '巨森食品企業有限公司', image: maleIconImg },
+  { name: '徐倉賓', term: '第一屆副理事長', period: '2000-2004', company: '弘爺國際企業股份有限公司', image: maleIconImg },
+  { name: '蔡澔鎔', term: '第二屆理事長', period: '2004-2008', company: '齋聖彥有限公司', image: maleIconImg },
+  { name: '陳筑怜', term: '第二屆理事長', period: '2004-2008', company: '齋聖彥有限公司', image: maleIconImg },
+  { name: '葉益芳', term: '第三屆理事長', period: '2008-2015', company: '益方封口機公司', image: maleIconImg },
+  { name: '林良田', term: '第五,六屆理事長', period: '2008-2015', company: '板田實業有限公司', image: maleIconImg },
+  { name: '陳弘欽', term: '第七,八屆理事長', period: '2008-2015', company: '巧沛國際股份有限公司', image: maleIconImg },
+  { name: '莊茂山', term: '第九屆理事長', period: '2008-2015', company: '吉得堡食品有限公司', image: maleIconImg },
 ];
+
+// 品牌分類
+const brandCategories = [
+  { label: '早餐', value: '早餐' },
+  { label: '健康餐盒', value: '健康餐盒' },
+  { label: '服務業', value: '服務業' },
+  { label: '金融機構', value: '金融機構' },
+  { label: '媒體機構', value: '媒體機構' }
+];
+
+
+const currentCategory = ref('all');
+
+// 品牌數據
+const brands = [
+  {
+    id: 1,
+    name: '紅橘子',
+    logo: redorangeImg,
+    category: '早餐',
+    description: '紅橘子，開啟你幸福的每一天。我們為了幸福而開店，當然也要每天都很幸福。',
+    website: 'https://www.redorange.com.tw/'
+  },
+  {
+    id: 2,
+    name: '少點鹽',
+    logo: saltlessImg,
+    category: '健康餐盒',
+    description: '少點鹽健康餐盒專賣，顛覆傳統水煮餐盒印象，當天新鮮食材現烹調，少油少鹽呈現食物的原味，每口都新鮮，簡單卻又不失美味。',
+    website: 'https://www.healthittaipei.com.tw'
+  },
+  {
+    id: 3,
+    name: '喜多生物科技',
+    logo: bioTechImg,
+    category: '健康餐盒',
+    description: '喜多以「品質優先」「生產專精」「經營績效」之理念，幾十年來累積許多寶貴的專業經驗提供許多優質產品，並期許以真材實料做食品吃出健康歡喜多服務廣大消費者。',
+    website: 'https://www.facebook.com/SIDUODRINK8848'
+  },
+  {
+    id: 4,
+    name: '艾力卡公司',
+    logo: ericaImg,
+    description: '專業進口咖啡杯、餐盒的紙原料，只要連鎖店需要的杯、餐盒，我有廠商全配合。',
+    category: '健康餐盒',
+    website: 'https://www.twincn.com/item.aspx?no=94021730'
+  }
+];
+
+// 根據當前分類篩選品牌
+const filteredBrands = computed(() => {
+  if (currentCategory.value === 'all') {
+    return brands;
+  } else {
+    return brands.filter(brand => brand.category === currentCategory.value);
+  }
+});
 </script> 
