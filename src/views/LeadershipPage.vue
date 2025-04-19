@@ -15,7 +15,7 @@
           <h2 class="text-3xl font-bold text-gray-800 mb-4">本屆理事會</h2>
           <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            第五屆理事會成員由行業內著名企業領導和專業人士組成，任期2023年至2027年
+            第X屆理事會成員由行業內著名企業領導和專業人士組成，任期20xx年至20xx年
           </p>
         </div>
         
@@ -29,7 +29,7 @@
               <h3 class="text-2xl font-bold text-gray-800 mb-2">蔡思庭</h3>
               <p class="text-blue-600 font-medium mb-4">理事長</p>
               <p class="text-gray-600 mb-4 leading-relaxed">
-                張偉明先生現任XX集團有限公司董事長，在行業內擁有超過30年的豐富經驗。他於2023年當選為協會第五屆理事長，致力於推動行業技術創新和國際化發展。
+                蔡思庭先生現任XX集團有限公司董事長，在行業內擁有超過30年的豐富經驗。他於20xx年當選為協會第x屆理事長，致力於推動行業技術創新和國際化發展。
               </p>
               <p class="text-gray-600 leading-relaxed">
                 在他的領導下，協會積極推動行業標準制定，促進企業間合作，為行業持續健康發展作出重要貢獻。
@@ -48,7 +48,7 @@
               <h3 class="text-xl font-bold text-gray-800 mb-2">蕭雅梅</h3>
               <p class="text-blue-600 font-medium mb-4">秘書長</p>
               <p class="text-gray-600 leading-relaxed">
-                劉明先生自2015年起擔任協會秘書長，全面負責協會日常運營管理工作。他擁有豐富的協會管理經驗，致力於提升協會服務質量，推動協會各項工作的開展和實施。
+                蕭雅梅女士現任XX集團有限公司董事長，在行業內擁有超過30年的豐富經驗。她於20xx年當選為協會第x屆理事長，致力於推動行業技術創新和國際化發展。
               </p>
             </div>
           </div>

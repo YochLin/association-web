@@ -142,7 +142,7 @@
                       <svg class="w-5 h-5 text-gray-600 mt-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
-                      <span class="text-gray-700">(+86) 10-12345678</span>
+                      <span class="text-gray-700">(+886) 10-12345678</span>
                     </div>
                     <div class="flex items-start">
                       <svg class="w-5 h-5 text-gray-600 mt-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -199,10 +199,10 @@ const eventId = route.params.id;
 const loading = ref(true);
 const event = ref(null);
 
-// 模拟从后端获取活动数据
+// 模擬從後端獲取活動數據
 const fetchEvent = () => {
-  // 这里实际应用中应该调用API获取数据
-  // 这里使用模拟数据
+  // 這裡實際應用中應該調用API獲取數據
+  // 這裡使用模擬數據
   const eventsData = [
     {
       id: '1',
@@ -212,33 +212,33 @@ const fetchEvent = () => {
       time: '18:00-21:00',
       location: '海大王時尚喜宴廣場',
       image: event1Img,
-      status: '已结束'
+      status: '已結束'
     },
     {
       id: '2',
-      title: '会员交流晚宴',
+      title: '會員交流晚宴',
       type: '交流晚宴',
       date: '2025年6月20日',
       time: '18:30-21:00',
       location: '上海XX大酒店',
-      description: '为会员提供社交和商业合作的机会，促进会员之间的交流与协作。',
+      description: '為會員提供社交和商業合作的機會，促進會員之間的交流與協作。',
       image: '/event-2.jpg',
-      status: '筹备中'
+      status: '籌備中'
     },
     {
       id: '3',
-      title: '专业技能提升工作坊',
-      type: '培训课程',
+      title: '專業技能提升工作坊',
+      type: '培訓課程',
       date: '2025年7月10日',
       time: '09:00-17:00',
-      location: '线上直播',
-      description: '通过实践性的工作坊帮助会员提升专业技能，跟上行业发展步伐。',
+      location: '線上直播',
+      description: '通過實踐性的工作坊幫助會員提升專業技能，跟上行業發展步伐。',
       image: '/event-3.jpg',
-      status: '报名中'
+      status: '報名中'
     }
   ];
   
-  // 模拟API延迟
+  // 模擬API延遲
   setTimeout(() => {
     const foundEvent = eventsData.find(e => e.id === eventId);
     event.value = foundEvent || null;
@@ -246,26 +246,25 @@ const fetchEvent = () => {
   }, 800);
 };
 
-// 相关活动数据
+// 相關活動數據
 const relatedEvents = [
   {
     id: '4',
-    title: '2024年第四季度行业论坛',
-    date: '2024年12月5日'
+    title: '2024年第四季度行業論壇',
   },
   {
     id: '5',
-    title: '先进制造企业参观考察',
+    title: '先進製造企業參觀考察',
     date: '2025年4月25日'
   },
   {
     id: '6',
-    title: '数字化转型专题培训',
+    title: '數字化轉型專題培訓',
     date: '2024年11月15日'
   }
 ];
 
-// 状态徽章样式
+// 狀態徽章樣式
 const getStatusBadgeClass = (status) => {
   switch (status) {
     case '報名中':

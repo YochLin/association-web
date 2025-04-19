@@ -28,8 +28,7 @@
                 <div>
                   <h3 class="text-lg font-semibold text-gray-800 mb-1">辦公地址</h3>
                   <p class="text-gray-600">
-                    北京市朝陽區XX路XX號<br>
-                    XX大廈15層1501-1505室
+                    台北市中山區南京東路三段303號
                   </p>
                 </div>
               </div>
@@ -43,8 +42,8 @@
                 <div>
                   <h3 class="text-lg font-semibold text-gray-800 mb-1">電話</h3>
                   <p class="text-gray-600">
-                    秘書處: (+86) 10-12345678<br>
-                    會員服務: (+86) 10-87654321
+                    秘書處: (+886) 2-2505-8888<br>
+                    會員服務: (+886) 2-2505-8888
                   </p>
                 </div>
               </div>
@@ -227,8 +226,8 @@
           </div>
         </div>
         <div class="mt-4 text-center text-gray-600">
-          <p>地址：北京市朝陽區XX路XX號 XX大廈15層</p>
-          <p class="mt-1">郵編：100000</p>
+          <p>地址：台北市中山區南京東路三段303號</p>
+          <p class="mt-1">郵編：10451</p>
         </div>
       </div>
     </section>
