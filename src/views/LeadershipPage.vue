@@ -145,6 +145,7 @@ import redorangeImg from '../assets/redorange.png';
 import saltlessImg from '../assets/saltless.png';
 import bioTechImg from '../assets/bio_tech.jpg';
 import ericaImg from '../assets/erica_tech.png';
+import lodpolImg from '../assets/lodpol.png';
 import maleIconImg from '../assets/male_icon.png';
 
 // 理事會成員數據
@@ -174,11 +175,9 @@ const pastChairmen = [
 
 // 品牌分類
 const brandCategories = [
-  { label: '早餐', value: '早餐' },
-  { label: '健康餐盒', value: '健康餐盒' },
-  { label: '服務業', value: '服務業' },
-  { label: '金融機構', value: '金融機構' },
-  { label: '媒體機構', value: '媒體機構' }
+  { label: '餐飲服務', value: '餐飲服務' },
+  { label: '供應商', value: '供應商' },
+  { label: '食品製造商', value: '食品製造商' },
 ];
 
 
@@ -190,7 +189,7 @@ const brands = [
     id: 1,
     name: '紅橘子',
     logo: redorangeImg,
-    category: '早餐',
+    category: '餐飲服務',
     description: '紅橘子，開啟你幸福的每一天。我們為了幸福而開店，當然也要每天都很幸福。',
     website: 'https://www.redorange.com.tw/'
   },
@@ -198,7 +197,7 @@ const brands = [
     id: 2,
     name: '少點鹽',
     logo: saltlessImg,
-    category: '健康餐盒',
+    category: '餐飲服務',
     description: '少點鹽健康餐盒專賣，顛覆傳統水煮餐盒印象，當天新鮮食材現烹調，少油少鹽呈現食物的原味，每口都新鮮，簡單卻又不失美味。',
     website: 'https://www.healthittaipei.com.tw'
   },
@@ -206,7 +205,7 @@ const brands = [
     id: 3,
     name: '喜多生物科技',
     logo: bioTechImg,
-    category: '健康餐盒',
+    category: '食品製造商',
     description: '喜多以「品質優先」「生產專精」「經營績效」之理念，幾十年來累積許多寶貴的專業經驗提供許多優質產品，並期許以真材實料做食品吃出健康歡喜多服務廣大消費者。',
     website: 'https://www.facebook.com/SIDUODRINK8848'
   },
@@ -215,8 +214,16 @@ const brands = [
     name: '艾力卡公司',
     logo: ericaImg,
     description: '專業進口咖啡杯、餐盒的紙原料，只要連鎖店需要的杯、餐盒，我有廠商全配合。',
-    category: '健康餐盒',
+    category: '供應商',
     website: 'https://www.twincn.com/item.aspx?no=94021730'
+  },
+  {
+    id: 5,
+    name: '快樂波浪紙杯工廠',
+    logo: lodpolImg,
+    description: '我們是一群來自不同領域的工程師團隊，也是對紙杯製造充滿熱情的創業者，致力研究提升技術，應用科技解決問題。',
+    category: '供應商',
+    website: 'https://lodpol.com/'
   }
 ];
 
