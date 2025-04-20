@@ -35,8 +35,8 @@
             <li><router-link to="/" class="hover:text-blue-300">首頁</router-link></li>
             <li><router-link to="/about" class="hover:text-blue-300">關於協會</router-link></li>
             <li><router-link to="/leadership" class="hover:text-blue-300">協會領導</router-link></li>
-            <li><router-link to="/brands" class="hover:text-blue-300">合作品牌</router-link></li>
             <li><router-link to="/events" class="hover:text-blue-300">活動資訊</router-link></li>
+            <li><router-link to="/contact" class="hover:text-blue-300">聯絡我們</router-link></li>
           </ul>
         </div>
         
