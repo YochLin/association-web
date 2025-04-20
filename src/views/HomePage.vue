@@ -71,7 +71,7 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div v-for="(event, index) in events" :key="index" class="card">
+          <div v-for="(event, index) in featuredEvents" :key="index" class="card">
             <img :src="event.image" :alt="event.title" class="w-full h-48 object-cover">
             <div class="p-6">
               <div class="flex items-center text-gray-500 mb-2">
@@ -94,30 +94,12 @@
         </div>
       </div>
     </section>
-    
-    <!-- 合作品牌部分 -->
-    <section class="py-16 bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">合作品牌</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
-          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">我們與行業領先的品牌和組織建立了戰略合作伙伴關係，共同推動行業發展</p>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-          <div v-for="i in 8" :key="i" class="flex justify-center">
-            <div class="p-4 bg-gray-50 rounded-lg w-full h-32 flex items-center justify-center">
-              <img :src="`/brand-placeholder-${i}.png`" :alt="`品牌合作伙伴 ${i}`" class="max-h-16 max-w-full">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { eventService } from '../services/eventService';
 
 // 輪播圖數據
 const slides = [
@@ -149,20 +131,6 @@ const events = [
     date: "2023年5月15日",
     description: "邀請行業專家分享對未來發展趨勢的見解和分析，探討行業面臨的機遇與挑戰。",
     image: "/event-1.jpg"
-  },
-  {
-    id: 2,
-    title: "會員交流晚宴",
-    date: "2023年6月20日",
-    description: "為會員提供社交和商業合作的機會，促進會員之間的交流與協作。",
-    image: "/event-2.jpg"
-  },
-  {
-    id: 3,
-    title: "專業技能提升工作坊",
-    date: "2023年7月10日",
-    description: "通過實踐性的工作坊幫助會員提升專業技能，跟上行業發展步伐。",
-    image: "/event-3.jpg"
   }
 ];
 
@@ -178,9 +146,12 @@ const startSlideShow = () => {
 
 onMounted(() => {
   startSlideShow();
+  featuredEvents.value = eventService.getFeaturedEvents(3);
 });
 
 onUnmounted(() => {
   clearInterval(slideInterval);
 });
+
+const featuredEvents = ref([]);
 </script> 

@@ -88,7 +88,7 @@
           <h2 class="text-3xl font-bold text-gray-800 mb-4">品牌成員</h2>
           <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            我們與行業內眾多知名企業建立了緊密的合作關係，共同推動行業創新與發展
+            匯聚了國內頂尖速食餐飲品牌的菁英領導者，每位成員皆為業界翹楚，憑藉豐富的市場經驗與專業知識，共同致力於推動產業進步與創新。
           </p>
         </div>
         

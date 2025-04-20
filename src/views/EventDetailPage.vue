@@ -82,20 +82,7 @@
               </div>
               
               <!-- 活動詳細介紹 -->
-              <div class="prose max-w-none">
-              100家餐飲企業總部立案至今屆滿20年的～<br>
-              #台灣速食餐飲連鎖協會#<br>
-              謹訂114年2月13日星期四18:00🌲海大王時尚喜宴廣場(新北產業園區五工路66號2樓)🌲。<br>
-              廣邀💌～<br>
-              🔥餐飲品牌總部<br>
-              🔥食品加工廠<br>
-              🔥行銷策略公司<br>
-              符合以上企業主/主管歡迎👏報名參加會員春酒宴～<br>
-              1000元/位<br>
-              #台灣速食餐飲連鎖#<br>
-              #企業會員招募#<br>
-              #限額##2月7日前#
-              </div>
+              <div class="prose max-w-none" v-html="event.detailContent"></div>
             </div>
             
             <!-- 側邊欄 -->
@@ -157,7 +144,7 @@
                 <div class="mt-6">
                   <h3 class="text-lg font-semibold text-gray-800 mb-4">相關活動</h3>
                   <div class="space-y-4">
-                    <div v-for="(relatedEvent, index) in relatedEvents" :key="index" class="bg-gray-50 p-4 rounded-lg">
+                    <div v-for="relatedEvent in relatedEvents" :key="relatedEvent.id" class="bg-gray-50 p-4 rounded-lg">
                       <div class="text-sm text-gray-500 mb-1">{{ relatedEvent.date }}</div>
                       <h4 class="font-medium text-gray-800 mb-1">{{ relatedEvent.title }}</h4>
                       <router-link :to="`/events/${relatedEvent.id}`" class="text-blue-600 text-sm hover:text-blue-800">
@@ -191,78 +178,14 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import event1Img from '../assets/event1.jpg';
+import { eventService } from '../services/eventService';
 
 const route = useRoute();
 const eventId = route.params.id;
 
 const loading = ref(true);
 const event = ref(null);
-
-// 模擬從後端獲取活動數據
-const fetchEvent = () => {
-  // 這裡實際應用中應該調用API獲取數據
-  // 這裡使用模擬數據
-  const eventsData = [
-    {
-      id: '1',
-      title: '2025第十屆第四次例會',
-      type: '例會',
-      date: '2025年2月13日',
-      time: '18:00-21:00',
-      location: '海大王時尚喜宴廣場',
-      image: event1Img,
-      status: '已結束'
-    },
-    {
-      id: '2',
-      title: '會員交流晚宴',
-      type: '交流晚宴',
-      date: '2025年6月20日',
-      time: '18:30-21:00',
-      location: '上海XX大酒店',
-      description: '為會員提供社交和商業合作的機會，促進會員之間的交流與協作。',
-      image: '/event-2.jpg',
-      status: '籌備中'
-    },
-    {
-      id: '3',
-      title: '專業技能提升工作坊',
-      type: '培訓課程',
-      date: '2025年7月10日',
-      time: '09:00-17:00',
-      location: '線上直播',
-      description: '通過實踐性的工作坊幫助會員提升專業技能，跟上行業發展步伐。',
-      image: '/event-3.jpg',
-      status: '報名中'
-    }
-  ];
-  
-  // 模擬API延遲
-  setTimeout(() => {
-    const foundEvent = eventsData.find(e => e.id === eventId);
-    event.value = foundEvent || null;
-    loading.value = false;
-  }, 800);
-};
-
-// 相關活動數據
-const relatedEvents = [
-  {
-    id: '4',
-    title: '2024年第四季度行業論壇',
-  },
-  {
-    id: '5',
-    title: '先進製造企業參觀考察',
-    date: '2025年4月25日'
-  },
-  {
-    id: '6',
-    title: '數字化轉型專題培訓',
-    date: '2024年11月15日'
-  }
-];
+const relatedEvents = ref([]);
 
 // 狀態徽章樣式
 const getStatusBadgeClass = (status) => {
@@ -279,6 +202,17 @@ const getStatusBadgeClass = (status) => {
 };
 
 onMounted(() => {
-  fetchEvent();
+  // 使用 setTimeout 模擬 API 延遲
+  setTimeout(() => {
+    // 獲取事件數據
+    event.value = eventService.getEventById(eventId);
+    
+    // 如果找到了事件，獲取相關事件
+    if (event.value) {
+      relatedEvents.value = eventService.getRelatedEvents(eventId, 3);
+    }
+    
+    loading.value = false;
+  }, 300);
 });
 </script> 

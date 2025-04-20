@@ -9,7 +9,7 @@
     </section>
 
     <!-- 篩選和搜尋 -->
-    <section class="bg-white py-12">
+    <section class="bg-gray-50 py-12">
       <div class="container-custom">
         <div class="flex flex-col md:flex-row justify-between items-center gap-6">
           <!-- 篩選選項 -->
@@ -118,7 +118,7 @@
               上一頁
             </button>
             <button 
-              v-for="page in totalPages" 
+              v-for="page in displayedPages" 
               :key="page"
               @click="currentPage = page"
               :class="['px-3 py-1 rounded text-sm', currentPage === page ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
@@ -135,71 +135,19 @@
         </div>
       </div>
     </section>
-    
-    <!-- 往期活動回顧 -->
-    <section class="bg-white py-16">
-      <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">往期活動回顧</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            回顧協會舉辦的精彩活動和重要時刻
-          </p>
-        </div>
-        
-        <!-- 活動圖片畫廊 -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div 
-            v-for="(image, index) in gallery" 
-            :key="index"
-            class="overflow-hidden rounded-lg shadow hover:shadow-lg cursor-pointer transition-all duration-300"
-            :class="{'md:col-span-2 md:row-span-2': image.featured}"
-          >
-            <img :src="image.src" :alt="image.alt" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-          </div>
-        </div>
-        
-        <div class="text-center mt-10">
-          <router-link to="/gallery" class="btn btn-primary-outline">
-            查看更多活動照片
-          </router-link>
-        </div>
-      </div>
-    </section>
-    
-    <!-- 訂閱活動通知 -->
-    <section class="bg-blue-800 text-white py-16">
-      <div class="container-custom">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-6">訂閱活動通知</h2>
-          <p class="text-lg mb-8">
-            隨時掌握協會的最新活動資訊，獲取獨家內容和活動邀請
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-            <input 
-              type="email"
-              placeholder="您的郵箱地址" 
-              class="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-            <button class="btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
-              訂閱
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
+import { eventService } from '../services/eventService';
+
+const featuredEvents = ref([]);
 
 // 活動分類
 const eventCategories = [
-  { label: '會議論壇', value: '會議論壇' },
-  { label: '培訓工作坊', value: '培訓工作坊' },
-  { label: '行業交流', value: '行業交流' },
-  { label: '公益活動', value: '公益活動' }
+  { label: '例會', value: '例會' },
+  { label: '參訪活動', value: '參訪活動' }
 ];
 
 // 活動數據
@@ -229,13 +177,13 @@ const gallery = [
 const searchQuery = ref('');
 const currentCategory = ref('all');
 const currentPage = ref(1);
-const eventsPerPage = 6;
+const eventsPerPage = 3;
 
 // 根據搜尋和篩選條件過濾活動
 const filteredBySearch = computed(() => {
-  if (!searchQuery.value) return events;
+  if (!searchQuery.value) return featuredEvents.value || [];
   const query = searchQuery.value.toLowerCase();
-  return events.filter(event => 
+  return (featuredEvents.value || []).filter(event => 
     event.title.toLowerCase().includes(query) || 
     event.description.toLowerCase().includes(query) ||
     event.location.toLowerCase().includes(query)
@@ -244,16 +192,19 @@ const filteredBySearch = computed(() => {
 
 const filteredByCategory = computed(() => {
   if (currentCategory.value === 'all') return filteredBySearch.value;
-  return filteredBySearch.value.filter(event => event.category === currentCategory.value);
+  return filteredBySearch.value.filter(event => event.type === currentCategory.value);
 });
 
 // 分頁功能
-const totalPages = computed(() => Math.ceil(filteredByCategory.value.length / eventsPerPage));
+const totalPages = computed(() => {
+  const total = Math.max(1, Math.ceil(filteredByCategory.value.length / eventsPerPage));
+  return total;
+});
 
 const filteredEvents = computed(() => {
   const startIndex = (currentPage.value - 1) * eventsPerPage;
   const endIndex = startIndex + eventsPerPage;
-  return filteredByCategory.value.slice(startIndex, endIndex);
+  return Array.isArray(filteredByCategory.value) ? filteredByCategory.value.slice(startIndex, endIndex) : [];
 });
 
 // 重置篩選條件
@@ -263,8 +214,29 @@ const resetFilters = () => {
   currentPage.value = 1;
 };
 
-// 監聽篩選條件變化，重置頁碼
+// 當篩選條件改變時，重置為第一頁
 watch([searchQuery, currentCategory], () => {
   currentPage.value = 1;
 });
-</script> 
+
+const displayedPages = computed(() => {
+  const pages = [];
+  let startPage = Math.max(1, currentPage.value - 2);
+  let endPage = Math.min(totalPages.value, startPage + 4);
+  
+  // 調整 startPage 確保總是顯示 5 個頁碼（如果有那麼多頁）
+  if (endPage - startPage < 4 && startPage > 1) {
+    startPage = Math.max(1, endPage - 4);
+  }
+  
+  for (let i = startPage; i <= endPage; i++) {
+    pages.push(i);
+  }
+  
+  return pages;
+});
+
+onMounted(() => {
+  featuredEvents.value = eventService.getFeaturedEvents(0);
+});
+</script>
