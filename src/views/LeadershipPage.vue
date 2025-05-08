@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 頁面標題部分 -->
-    <section class="bg-blue-800 text-white py-20">
+    <section class="bg-[#e0725f] text-white py-20">
       <div class="container-custom text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">協會成員</h1>
         <p class="text-xl md:text-2xl max-w-3xl mx-auto">了解協會領導團隊，共同推動行業發展</p>
@@ -13,7 +13,7 @@
       <div class="container-custom">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">本屆理事會</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <div class="w-20 h-1 bg-red-600 mx-auto mb-4"></div>
           <p class="text-gray-600 max-w-2xl mx-auto">
             第X屆理事會成員由行業內著名企業領導和專業人士組成，任期20xx年至20xx年
           </p>
@@ -22,12 +22,12 @@
         <!-- 理事長 -->
         <div class="mb-16">
           <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
-            <div class="w-64 h-64 overflow-hidden rounded-full border-4 border-blue-100 shadow-lg flex-shrink-0">
+            <div class="w-64 h-64 overflow-hidden rounded-full border-4 border-red-100 shadow-lg flex-shrink-0">
               <img src="../assets/male_icon.png" alt="理事長" class="w-full h-full object-cover">
             </div>
             <div>
               <h3 class="text-2xl font-bold text-gray-800 mb-2">蔡思庭</h3>
-              <p class="text-blue-600 font-medium mb-4">理事長</p>
+              <p class="text-red-600 font-medium mb-4">理事長</p>
               <p class="text-gray-600 mb-4 leading-relaxed">
                 蔡思庭先生現任XX集團有限公司董事長，在行業內擁有超過30年的豐富經驗。他於20xx年當選為協會第x屆理事長，致力於推動行業技術創新和國際化發展。
               </p>
@@ -41,12 +41,12 @@
         <!-- 秘書長 -->
         <div class="mb-16">
           <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
-            <div class="w-48 h-48 overflow-hidden rounded-full border-4 border-blue-100 shadow-lg flex-shrink-0">
+            <div class="w-48 h-48 overflow-hidden rounded-full border-4 border-red-100 shadow-lg flex-shrink-0">
               <img src="../assets/male_icon.png" alt="秘書長" class="w-full h-full object-cover">
             </div>
             <div>
               <h3 class="text-xl font-bold text-gray-800 mb-2">蕭雅梅</h3>
-              <p class="text-blue-600 font-medium mb-4">秘書長</p>
+              <p class="text-red-600 font-medium mb-4">秘書長</p>
               <p class="text-gray-600 leading-relaxed">
                 蕭雅梅女士現任XX集團有限公司董事長，在行業內擁有超過30年的豐富經驗。她於20xx年當選為協會第x屆理事長，致力於推動行業技術創新和國際化發展。
               </p>
@@ -61,7 +61,7 @@
       <div class="container-custom">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">歷屆理事長</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <div class="w-20 h-1 bg-red-600 mx-auto mb-4"></div>
           <p class="text-gray-600 max-w-2xl mx-auto">
             感謝歷屆理事長為協會發展做出的重要貢獻
           </p>
@@ -69,11 +69,11 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div v-for="(chairman, index) in pastChairmen" :key="index" class="card p-6 text-center">
-            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-100 mx-auto mb-4">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-red-100 mx-auto mb-4">
               <img :src="chairman.image" :alt="chairman.name" class="w-full h-full object-cover">
             </div>
             <h3 class="text-lg font-bold text-gray-800">{{ chairman.name }}</h3>
-            <p class="text-blue-600 font-medium mb-2">{{ chairman.term }}</p>
+            <p class="text-red-600 font-medium mb-2">{{ chairman.term }}</p>
             <p class="text-gray-600 text-sm mb-2">{{ chairman.period }}</p>
             <p class="text-gray-600 text-sm">{{ chairman.company }}</p>
           </div>
@@ -86,7 +86,7 @@
       <div class="container-custom">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">品牌成員</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <div class="w-20 h-1 bg-red-600 mx-auto mb-4"></div>
           <p class="text-gray-600 max-w-2xl mx-auto">
             匯聚了國內頂尖速食餐飲品牌的菁英領導者，每位成員皆為業界翹楚，憑藉豐富的市場經驗與專業知識，共同致力於推動產業進步與創新。
           </p>
@@ -98,7 +98,7 @@
             <button 
               @click="currentCategory = 'all'" 
               :class="['px-4 py-2 rounded-full text-sm font-medium', 
-                      currentCategory === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
+                      currentCategory === 'all' ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
             >
               全部
             </button>
@@ -107,7 +107,7 @@
               :key="category.value"
               @click="currentCategory = category.value" 
               :class="['px-4 py-2 rounded-full text-sm font-medium', 
-                      currentCategory === category.value ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
+                      currentCategory === category.value ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
             >
               {{ category.label }}
             </button>
@@ -128,7 +128,7 @@
             <p class="text-sm text-gray-600 text-center mb-4">{{ brand.category }}</p>
             <p class="text-gray-600 text-sm mb-4">{{ brand.description }}</p>
             <div class="text-center">
-              <a :href="brand.website" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+              <a :href="brand.website" target="_blank" class="text-red-600 hover:text-red-800 text-sm font-medium">
                 訪問官網 &rarr;
               </a>
             </div>

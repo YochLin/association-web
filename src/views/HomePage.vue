@@ -14,9 +14,9 @@
             <div class="text-center text-white max-w-4xl">
               <h2 class="text-3xl md:text-5xl font-bold mb-4">{{ slide.title }}</h2>
               <p class="text-xl md:text-2xl mb-6">{{ slide.description }}</p>
-              <router-link :to="slide.link" class="btn btn-primary px-6 py-3">
-                了解更多
-              </router-link>
+            <router-link :to="slide.link" class="px-6 py-3 bg-[#e0725f] text-white rounded-md hover:bg-[#d06050] transition-colors">
+              了解更多
+            </router-link>
             </div>
           </div>
         </div>
@@ -38,12 +38,12 @@
       <div class="container-custom">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">關於我們的協會</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div class="w-20 h-1 bg-red-600 mx-auto"></div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
-            <img src="/about-placeholder.jpg" alt="協會介紹" class="rounded-lg shadow-lg w-full h-auto">
+            <img src="../assets/event1.jpg" alt="協會介紹" class="rounded-lg shadow-lg w-full h-auto">
           </div>
           <div>
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">我們的使命</h3>
@@ -56,7 +56,7 @@
               可核准正名為「台灣速食餐飲協會」，更名首屆理事長為葉益芳先生。 
               未來，本會將秉持專業的態度，提供會員教育講習、海外市場經營資訊、供應鏈輔導諮詢等業務，期望本會成為兩岸速食餐飲產業最大服務平台的願景得以實現。
             </p>
-            <router-link to="/about" class="btn btn-primary">詳細了解</router-link>
+          <router-link to="/about" class="bg-[#e0725f] btn btn-primary hover:bg-[#d06050]">詳細了解</router-link>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
       <div class="container-custom">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">最新活動</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div class="w-20 h-1 bg-red-600 mx-auto"></div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -82,7 +82,7 @@
               </div>
               <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ event.title }}</h3>
               <p class="text-gray-600 mb-4">{{ event.description }}</p>
-              <router-link :to="`/events/${event.id}`" class="text-blue-600 font-medium hover:text-blue-800">
+              <router-link :to="`/events/${event.id}`" class="text-red-600 font-medium hover:text-red-800">
                 查看詳情 &rarr;
               </router-link>
             </div>
@@ -90,7 +90,7 @@
         </div>
         
         <div class="text-center mt-10">
-          <router-link to="/events" class="btn btn-primary">查看所有活動</router-link>
+          <router-link to="/events" class="bg-[#e0725f] btn btn-primary hover:bg-[#d06050]">查看所有活動</router-link>
         </div>
       </div>
     </section>
@@ -101,36 +101,29 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { eventService } from '../services/eventService';
 
+import welcome from '../assets/welcome.svg';
+import welcome2 from '../assets/welcome2.svg';
+import welcome3 from '../assets/welcome3.svg';
+
 // 輪播圖數據
 const slides = [
   {
     title: "歡迎訪問協會官網",
     description: "我們致力於促進行業交流與合作，推動行業健康發展",
-    image: "/slide-1.jpg",
+    image: welcome,
     link: "/about"
   },
   {
     title: "專業的行業支持",
     description: "為會員提供全方位的專業諮詢和支持服務",
-    image: "/slide-2.jpg",
+    image: welcome2,
     link: "/services"
   },
   {
     title: "定期舉辦行業活動",
     description: "研討會、培訓課程、社交活動等多種形式的專業交流",
-    image: "/slide-3.jpg",
+    image: welcome3,
     link: "/events"
-  }
-];
-
-// 活動數據
-const events = [
-  {
-    id: 1,
-    title: "2023年度行業發展趨勢研討會",
-    date: "2023年5月15日",
-    description: "邀請行業專家分享對未來發展趨勢的見解和分析，探討行業面臨的機遇與挑戰。",
-    image: "/event-1.jpg"
   }
 ];
 

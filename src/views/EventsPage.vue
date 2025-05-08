@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 頁面標題部分 -->
-    <section class="bg-blue-800 text-white py-20">
+    <section class="bg-[#e0725f] text-white py-20">
       <div class="container-custom text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">活動資訊</h1>
         <p class="text-xl md:text-2xl max-w-3xl mx-auto">掌握協會最新動態與行業資訊</p>
@@ -17,7 +17,7 @@
             <button 
               @click="currentCategory = 'all'" 
               :class="['px-4 py-2 rounded-full text-sm font-medium', 
-                      currentCategory === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
+                      currentCategory === 'all' ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
             >
               全部
             </button>
@@ -26,7 +26,7 @@
               :key="category.value"
               @click="currentCategory = category.value" 
               :class="['px-4 py-2 rounded-full text-sm font-medium', 
-                      currentCategory === category.value ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
+                      currentCategory === category.value ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
             >
               {{ category.label }}
             </button>
@@ -38,7 +38,7 @@
               type="text" 
               v-model="searchQuery"
               placeholder="搜尋活動..." 
-              class="border border-gray-300 rounded-full py-2 px-4 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="border border-gray-300 rounded-full py-2 px-4 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
             >
             <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
               <svg class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,7 +60,7 @@
           </svg>
           <h3 class="text-xl font-semibold text-gray-700 mb-2">沒有找到符合條件的活動</h3>
           <p class="text-gray-500">請嘗試其他搜尋條件或瀏覽全部活動</p>
-          <button @click="resetFilters" class="mt-4 text-blue-600 hover:text-blue-800 font-medium">
+          <button @click="resetFilters" class="mt-4 text-red-600 hover:text-red-800 font-medium">
             重置篩選條件
           </button>
         </div>
@@ -76,7 +76,7 @@
             <div class="relative overflow-hidden">
               <img :src="event.image" :alt="event.title" class="w-full h-52 object-cover transition duration-500 group-hover:scale-105">
               <div class="absolute top-4 left-4">
-                <span class="inline-block bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded">{{ event.category }}</span>
+                <span class="inline-block bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded">{{ event.category }}</span>
               </div>
               <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                 <div class="flex items-center text-white">
@@ -100,7 +100,7 @@
                   </svg>
                   <span>{{ event.location }}</span>
                 </div>
-                <router-link :to="`/events/${event.id}`" class="text-blue-600 hover:text-blue-800 font-medium text-sm">
+                <router-link :to="`/events/${event.id}`" class="text-red-600 hover:text-red-800 font-medium text-sm">
                   查看詳情 &rarr;
                 </router-link>
               </div>
@@ -121,7 +121,7 @@
               v-for="page in displayedPages" 
               :key="page"
               @click="currentPage = page"
-              :class="['px-3 py-1 rounded text-sm', currentPage === page ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
+              :class="['px-3 py-1 rounded text-sm', currentPage === page ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300']"
             >
               {{ page }}
             </button>
