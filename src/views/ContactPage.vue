@@ -28,7 +28,7 @@
                 <div>
                   <h3 class="text-lg font-semibold text-gray-800 mb-1">辦公地址</h3>
                   <p class="text-gray-600">
-                    台北市中山區南京東路三段303號
+                    台北市xx區xxx路三段303號
                   </p>
                 </div>
               </div>
@@ -55,11 +55,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-lg font-semibold text-gray-800 mb-1">電子郵箱</h3>
+                  <h3 class="text-lg font-semibold text-gray-800 mb-1">電子信箱</h3>
                   <p class="text-gray-600">
-                    一般諮詢: info@association.org<br>
-                    會員服務: member@association.org<br>
-                    媒體合作: media@association.org
+                    服務諮詢: tffatw.org@gmail.com<br>
                   </p>
                 </div>
               </div>
@@ -226,7 +224,7 @@
           </div>
         </div>
         <div class="mt-4 text-center text-gray-600">
-          <p>地址：台北市中山區南京東路三段303號</p>
+          <p>地址：台北市xx區xxx路三段303號</p>
           <p class="mt-1">郵編：10451</p>
         </div>
       </div>

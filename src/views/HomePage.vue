@@ -11,7 +11,10 @@
         >
           <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
-            <div class="text-center text-white max-w-4xl">
+            <div 
+              class="text-center text-white max-w-4xl"
+              :style="{ paddingLeft: slide.textPosition === 'right' ? '500px' : '0', paddingRight: slide.textPosition === 'left' ? '500px' : '0' }"
+            >
               <h2 class="text-3xl md:text-5xl font-bold mb-4">{{ slide.title }}</h2>
               <p class="text-xl md:text-2xl mb-6">{{ slide.description }}</p>
             <router-link :to="slide.link" class="px-6 py-3 bg-[#e0725f] text-white rounded-md hover:bg-[#d06050] transition-colors">
@@ -108,22 +111,25 @@ import welcome3 from '../assets/welcome3.svg';
 // 輪播圖數據
 const slides = [
   {
-    title: "歡迎訪問協會官網",
+    title: "台灣速食餐飲協會",
     description: "我們致力於促進行業交流與合作，推動行業健康發展",
     image: welcome,
-    link: "/about"
+    link: "/about",
+    textPosition: "right"
   },
   {
     title: "專業的行業支持",
     description: "為會員提供全方位的專業諮詢和支持服務",
     image: welcome2,
-    link: "/services"
+    link: "/services",
+    textPosition: "right"
   },
   {
     title: "定期舉辦行業活動",
     description: "研討會、培訓課程、社交活動等多種形式的專業交流",
     image: welcome3,
-    link: "/events"
+    link: "/events",
+    textPosition: "left"
   }
 ];
 
